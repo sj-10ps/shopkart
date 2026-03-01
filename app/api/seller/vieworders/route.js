@@ -5,6 +5,7 @@ import Seller from "@/models/Seller"
 import authOptions from "@/utils/authOptions"
 import { getServerSession } from "next-auth"
 import { NextResponse } from "next/server"
+import Address from "@/models/Address"
 
 export const GET=async()=>{
     try {
