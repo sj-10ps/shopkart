@@ -56,7 +56,7 @@ const AddtoCart = ({data}) => {
        
     }
 
-    if(session.user.id===data.addedBy.owner){
+    if(session?.user.id===data.addedBy.owner){
       return(
         <div className='bg-white p-5'>
               You cant order your own product
