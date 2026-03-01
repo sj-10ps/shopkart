@@ -36,7 +36,7 @@ const CategoryBar = () => {
     <div className={` p-2 grid md:grid-cols-6 grid-cols-3 gap-6`}>
    
      {categories.map((c,index)=>(
-        <button onClick={()=>router.push(`/user/products?category=${c}`)} key={index} className="bg-cyan-400 shadow-2xl rounded-md p-5 flex items-center  gap-2 hover:opacity-60 hover:-translate-y-2 duration-500">
+        <button onClick={()=>router.push(`/user/products?category=${c}`)} key={index} className="bg-cyan-400 shadow-2xl rounded-md p-5 flex items-center md:flex-row flex-col  gap-2 hover:opacity-60 hover:-translate-y-2 duration-500">
            {getCategoryIcon(c)}
           <p>{c}</p>
         </button>
