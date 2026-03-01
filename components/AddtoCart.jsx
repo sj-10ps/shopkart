@@ -39,6 +39,10 @@ const AddtoCart = ({data}) => {
         fetchData()
     },[refresh])
     const handleadd=async()=>{
+      if(!session){
+              toast.error("please login")
+              return router.push('/user/profile')
+          }
       const res=await dispatch(addtoCart({productId:data._id,count:count})).unwrap()
       await dispatch(fetchcartdata()).unwrap()
        toast(res)
@@ -47,6 +51,10 @@ const AddtoCart = ({data}) => {
  
     }
     const handledelete=async()=>{
+      if(!session){
+              toast.error("please login")
+              return router.push('/user/profile')
+          }
        const res=await dispatch(removefromcart(data._id)).unwrap()
        await dispatch(fetchcartdata()).unwrap()
        Setcount(1)
