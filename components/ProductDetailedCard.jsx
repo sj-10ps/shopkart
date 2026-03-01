@@ -11,7 +11,7 @@ const ProductDetailedCard = ({data}) => {
   
   return (
     <div className='bg-white rounded-lg p-2 flex md:flex-row flex-col gap-6 shadow-xl'>
-      <div className='h-84 w-full relative'>
+      <div className='h-84 w-50 relative'>
         <Image src={data.image[0]} fill alt=''/>
         <div className='absolute bg-white shadow-2xl p-2 right-2 px-4  rounded-md'>
            <p className='flex gap-1 items-center text-red-800 text-lg'><FaRupeeSign/> {data.price}</p>
