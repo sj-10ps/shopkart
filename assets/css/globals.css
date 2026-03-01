@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme{
+    --font-sans:"Poppins",ui-sans-serif,system-ui,sans-serif;
+    --animate-slideFromTop:slideFromTop 0.1s ease-out;
+    @keyframes slideFromTop{
+      0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    }
+}
+
+@layer components{
+
+    .btn-primary{
+        @apply  flex gap-1 items-center justify-center bg-blue-500 px-2 py-1 rounded-md text-white hover:scale-105;
+    }
+    .btn-secondary{
+        @apply   flex gap-1 items-center justify-center bg-violet-500 px-2 py-1 rounded-md text-white hover:scale-105;
+    }
+    .btn-tertiary{
+        @apply flex gap-1 items-center justify-center bg-red-500 px-2 py-1 rounded-md text-white hover:scale-105;
+    }
+    .form-label{
+        @apply  capitalize font-semibold;
+    }
+    .form-input{
+        @apply p-2 bg-white rounded-md placeholder:text-slate-400 outline;
+    }
+   
+}
