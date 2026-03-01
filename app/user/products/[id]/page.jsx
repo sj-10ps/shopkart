@@ -18,6 +18,7 @@ const fetchData=async(id)=>{
         return res.json()
     } catch (error) {
         console.log(error)
+        return {}
     }
 }
 
