@@ -9,7 +9,7 @@ import { useSession } from 'next-auth/react'
 import { redirect } from 'next/navigation'
 import AddtoWishlistButton from './AddtoWishlistButton'
 import { FiShoppingCart } from 'react-icons/fi'
-import { addtoCart, removefromcart } from '@/redux/cartSlice'
+import { addtoCart, fetchcartdata, removefromcart } from '@/redux/cartSlice'
 
 
 const AddtoCart = ({data}) => {
@@ -40,6 +40,7 @@ const AddtoCart = ({data}) => {
     },[refresh])
     const handleadd=async()=>{
       const res=await dispatch(addtoCart({productId:data._id,count:count})).unwrap()
+      await dispatch(fetchcartdata()).unwrap()
        toast(res)
            setrefresh(prev=>!prev)
      
@@ -47,6 +48,7 @@ const AddtoCart = ({data}) => {
     }
     const handledelete=async()=>{
        const res=await dispatch(removefromcart(data._id)).unwrap()
+       await dispatch(fetchcartdata()).unwrap()
        Setcount(1)
        toast(res)
          setrefresh(prev=>!prev)
