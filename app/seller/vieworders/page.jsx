@@ -7,6 +7,9 @@ const ViewOrders = async() => {
     const res=await fetch(`${process.env.NEXTAUTH_URL}/api/seller/vieworders`,{headers:{
       Cookie:(await cookies()).toString()
     }})
+    if(!res.ok){
+      return []
+    }
     const data=await res.json()
     return data
   }
