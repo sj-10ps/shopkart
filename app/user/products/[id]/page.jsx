@@ -9,9 +9,7 @@ import { cookies } from 'next/headers'
 const fetchData=async(id)=>{
   
     try {
-        const res=await fetch(`${process.env.NEXTAUTH_URL}/api/user/products/${id}`,{cache:'no-store',headers:{
-          Cookie:(await cookies()).toString()
-        }})
+        const res=await fetch(`${process.env.NEXTAUTH_URL}/api/user/products/${id}`,{cache:'no-store'})
         if(!res.ok){
             throw new Error('failed to fetch')
         }
