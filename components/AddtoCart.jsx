@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import LoadingComponent from './LoadingComponent'
 import { useSession } from 'next-auth/react'
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import AddtoWishlistButton from './AddtoWishlistButton'
 import { FiShoppingCart } from 'react-icons/fi'
 import { addtoCart, fetchcartdata, removefromcart } from '@/redux/cartSlice'
 
 
 const AddtoCart = ({data}) => {
+  const router=useRouter()
    const {data:session}=useSession()
     const [count,Setcount]=useState(1)
     const [loading,setLoading]=useState(false)
