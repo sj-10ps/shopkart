@@ -3,12 +3,15 @@ import Sellerinfo from '@/components/Sellerinfo'
 import ProductDetailedCard from '@/components/ProductDetailedCard'
 import React from 'react'
 import AddtoCart from '@/components/AddtoCart'
-import { useSession } from 'next-auth/react'
+import { cookies } from 'next/headers'
+
 
 const fetchData=async(id)=>{
   
     try {
-        const res=await fetch(`${process.env.NEXTAUTH_URL}/api/user/products/${id}`)
+        const res=await fetch(`${process.env.NEXTAUTH_URL}/api/user/products/${id}`,{headers:{
+          Cookie:(await cookies()).toString()
+        }})
         if(!res.ok){
             throw new Error('failed to fetch')
         }
